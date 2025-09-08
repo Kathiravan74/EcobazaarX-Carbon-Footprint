@@ -1,0 +1,28 @@
+const express = require('express');
+const router = express.Router();
+const adminController = require('../controllers/adminController');
+const { auth, authorizeRoles } = require('../middleware/authMiddleware');
+
+const ADMIN_ROLE_ID = 3; // Ensure this matches your database role ID
+
+// @route   GET /api/admin/products
+// @desc    Admin: Get all products
+// @access  Private (Admin only)
+router.get('/products', auth, authorizeRoles([ADMIN_ROLE_ID]), adminController.getAllProductsAdmin);
+
+// @route   GET /api/admin/users
+// @desc    Admin: Get all users
+// @access  Private (Admin only)
+router.get('/users', auth, authorizeRoles([ADMIN_ROLE_ID]), adminController.getAllUsers);
+
+// @route   GET /api/admin/orders
+// @desc    Admin: Get all orders
+// @access  Private (Admin only)
+router.get('/orders', auth, authorizeRoles([ADMIN_ROLE_ID]), adminController.getAllOrders);
+
+// @route   PUT /api/admin/users/:id/role
+// @desc    Admin: Update user role
+// @access  Private (Admin only)
+router.put('/users/:id/role', auth, authorizeRoles([ADMIN_ROLE_ID]), adminController.updateUserRole);
+
+module.exports = router;
