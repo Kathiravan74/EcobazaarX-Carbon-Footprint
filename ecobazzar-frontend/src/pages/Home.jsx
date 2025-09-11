@@ -30,7 +30,7 @@ const Home = () => {
       <section className="bg-gradient-to-br from-primary-50 to-primary-100 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-            Shop Sustainably with <span className="text-primary-600">EcoBazzar</span>
+            Shop Sustainably with <span className="text-primary-600">EcoBazaar</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
             Discover eco-friendly products that make a difference.
@@ -49,7 +49,7 @@ const Home = () => {
       {/* Features */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose EcoBazzar?</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose EcoBazaar?</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">Committed to making sustainable shopping accessible.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto px-4">

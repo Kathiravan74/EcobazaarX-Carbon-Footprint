@@ -1,4 +1,5 @@
 import axios from 'axios'
+
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api'
 
 const api = axios.create({
@@ -46,7 +47,7 @@ export const cartAPI = {
 
 // Orders
 export const ordersAPI = {
- getSellerOrders: () => api.get('/orders/seller/orders'),
+  getSellerOrders: () => api.get('/orders/seller/orders'),
   placeOrder: () => api.post('/orders/checkout'),
   getHistory: () => api.get('/orders/history'),
   getAllOrders: () => api.get('/orders'),
@@ -60,17 +61,24 @@ export const usersAPI = {
   updatePassword: data => api.put('/users/password', data),
 }
 
-// Admin
+// Admin - UPDATED WITH NEW FUNCTIONS
 export const adminAPI = {
   getAllProducts: () => api.get('/admin/products'),
   getAllUsers: () => api.get('/admin/users'),
   getAllOrders: () => api.get('/admin/orders'),
-  updateUserRole: (userId,newRoleId) =>
-    api.put(`/admin/users/${userId}/role`, { newRoleId }),
+  getAllSellers: () => api.get('/admin/sellers'), // NEW
+  deleteSeller: (sellerId) => api.delete(`/admin/sellers/${sellerId}`), // NEW
+  updateUserRole: (userId,newRoleId) => api.put(`/admin/users/${userId}/role`, { newRoleId }),
+  
+  // NEW ANALYTICS ENDPOINTS
+  getTopCustomer: () => api.get('/admin/analytics/top-customer'),
+  getTopSeller: () => api.get('/admin/analytics/top-seller'),
+  getMostSoldProducts: () => api.get('/admin/analytics/most-sold-products'),
 }
+
 export const feedbackAPI = {
   submitFeedback: message => api.post('/feedback', { message }),
   getAllFeedback: () => api.get('/feedback'),
-};
+}
 
 export default api
